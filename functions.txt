@@ -1,0 +1,107 @@
+Q.1- Create a function to calculate the area of a sphere by taking 
+radius from user.
+
+
+
+
+>>> def area():
+...    '''calculating the area of sphere'''
+...    r=int(input("enter the radius"))
+...    area=4*3.14*(r**2)
+...    print("the area of sphere is",area)
+...
+>>> area()
+enter the radius 2
+the area of sphere is 50.24
+
+
+
+
+''' Q.2- Write a function “perfect()” that determines if parameter 
+number is a perfect number. Use this function in a program that 
+determines and prints all the perfect numbers between 1 and 1000.
+[An integer number is said to be “perfect number” if its factors, 
+including 1(but not the number itself), sum to the number. E.g., 6 is a 
+perfect number because 6=1+2+3]. '''
+
+def perfect(number):
+    '''function to determine if the parameter is perfect'''
+    sum=0
+    for i in range(1,number):
+        if number%i==0:
+            sum+=i
+    else:
+        if sum==number:
+            return True
+    return False
+
+for i in range(1,1000):
+    if perfect(i):
+print(i)
+
+
+
+# Q.3- Print multiplication table of 12 using recursion.
+
+def table(number,limit,t):
+    ''' function to print the multiplication table of number uptil limit 
+using recursion '''
+    ''' indirectly it is a function to store the table of number uptil 
+limit in a list t'''
+    if limit==1:
+        t.insert(0,number)
+
+    else:
+        t.insert(0,number*(limit))
+        table(number,limit-1,t)
+
+t=[]
+table(12,10,t)
+for i in t:
+print(i)
+
+
+''' Q.4- Write a function to calculate power of a number raised to other 
+( a^b ) using recursion. '''
+
+def power(a,b):
+    ''' function to calculate power of a raised by b'''
+    if b==1:
+        return a
+    else:
+        return a*power(a,b-1)
+a=int(input("Enter a in a^b: "))
+b=int(input("Enter b in a^b: "))
+print(power(a,b))
+
+
+
+''' Q.5- Write a function to find factorial of a number but also store 
+the factorials calculated in a dictionary '''
+
+def factorial(num):
+    ''' function to find factorial of a number'''
+    if num<=1:
+        return 1
+    else:
+        return num*factorial(num-1)
+
+dict={}
+
+choice='y'
+
+while choice=='y':
+
+    n=int(input("Enter number to find factorial of: "))
+
+    f=factorial(n)
+
+    dict[n]=f
+
+    ch=input("Do you want to find more factorials?? y/n : ")
+
+print("The dictionary for all your inputs and their factorials are as 
+follows: ")
+print(dict)
+
+    
